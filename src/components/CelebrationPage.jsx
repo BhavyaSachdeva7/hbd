@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import "./CelebrationPage.css";
 import Confetti from "./Confetti";
 
+// 👇 YOUR NEW GIF LINK
+const angryImg = "https://media.tenor.com/y1utwcb1ZkYAAAAM/dog-side-eyeing-side-eye.gif"; 
+
 // Generate heart positions outside component to avoid render issues
 const generateHeartPositions = () =>
   [...Array(15)].map(() => ({
@@ -26,25 +29,28 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
   const [lightsOn, setLightsOn] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
+  // 👇 STATE: Tracks if "No" was clicked
+  const [noClicked, setNoClicked] = useState(false);
+
   // QNA Slides data
   const slides = [
     {
-      icon: "✨",
-      text: "It's Your Special Day Yeyey!",
+      icon: <img src="https://i.pinimg.com/736x/14/fe/1b/14fe1b985f8fa73d3562c205af299464.jpg" style={{ width: '200px' }} />,
+      text: "It's 29th!",
       type: "announcement",
     },
     {
-      icon: "✨",
-      text: "Do you wanna see what I made??",
+      icon: <img src="https://i.pinimg.com/736x/3e/14/55/3e1455b7c5d8ad7601a2be82bda112f5.jpg" style={{ width: '200px' }} />,
+      text: "Want to see what's next?",
       type: "question",
       options: [
-        { text: "Yes!", value: "yes" },
+        { text: "Yes", value: "yes" },
         { text: "No", value: "no" },
       ],
     },
     {
-      icon: "✨",
-      text: "Have a look at it, Madam Jiii",
+      icon: <img src="https://media.tenor.com/m8ks5CktT0wAAAAM/dogo-luldogo.gif" style={{ width: '200px' }} />,
+      text: "Here we go😼",
       type: "announcement",
     },
   ];
@@ -80,13 +86,8 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
 
   const handleAnswer = (value) => {
     if (value === "no") {
-      // Playful response for "No"
-      gsap.to(".question-options", {
-        x: -20,
-        duration: 0.1,
-        yoyo: true,
-        repeat: 5,
-      });
+      // Set state to show funny image
+      setNoClicked(true);
     } else {
       handleNext();
     }
@@ -152,7 +153,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
 
   // Handle button activation
   const handleButtonClick = (buttonType) => {
-    if (activatedButtons[buttonType]) return;
+    if (activatedButtons[buttonType] && buttonType !== "message") return;
 
     const button = document.querySelector(`[data-button="${buttonType}"]`);
 
@@ -290,25 +291,60 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
         <div className="slides-container">
           <div className="slide-content">
             <div className="slide-icon">{slides[currentSlide].icon}</div>
-            <h2 className="slide-text">{slides[currentSlide].text}</h2>
+            
+            {/* 👇 UPDATED: Changes Title when No is clicked */}
+            <h2 className="slide-text">
+                {noClicked ? "I see🤖" : slides[currentSlide].text}
+            </h2>
 
             {slides[currentSlide].type === "question" ? (
-              <div className="question-options">
-                {slides[currentSlide].options.map((option, index) => (
+              // Checks if "No" was clicked
+              noClicked ? (
+                <div
+                  className="funny-response"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "15px",
+                  }}
+                >
+                  <img
+                    src={angryImg}
+                    alt="Funny response"
+                    style={{
+                      width: "220px",
+                      borderRadius: "15px",
+                      border: "3px solid #fff",
+                    }}
+                  />
+                   
                   <button
-                    key={index}
-                    className={`option-button ${
-                      option.value === "yes" ? "yes-button" : "no-button"
-                    }`}
-                    onClick={() => handleAnswer(option.value)}
+                    className="option-button yes-button"
+                    onClick={() => setNoClicked(false)}
                   >
-                    {option.text} {option.value === "yes" && "👆"}
+                    lol okay
                   </button>
-                ))}
-              </div>
+                </div>
+              ) : (
+                <div className="question-options">
+                  {slides[currentSlide].options.map((option, index) => (
+                    <button
+                      key={index}
+                      className={`option-button ${
+                        option.value === "yes" ? "yes-button" : "no-button"
+                      }`}
+                      onClick={() => handleAnswer(option.value)}
+                    >
+                      {/* 👇 Finger Emoji Removed */}
+                      {option.text} 
+                    </button>
+                  ))}
+                </div>
+              )
             ) : (
               <button className="next-button" onClick={handleNext}>
-                {currentSlide < slides.length - 1 ? "Next" : "Let's Go! 🎉"}
+                {currentSlide < slides.length - 1 ? "Next" : "Let's Go!🎉"}
               </button>
             )}
           </div>
@@ -332,72 +368,70 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
         <>
           {/* Buttons Section - At the TOP */}
           <div className="celebration-buttons">
-            <h2 className="celebration-title">Let's Celebrate! 🎉</h2>
-            <p className="celebration-subtitle">
-              Click the buttons to decorate
-            </p>
+            <h2 className="celebration-title">Let's Celebrate!🎉</h2>
+            <p className="celebration-subtitle"></p>
 
             <div className="buttons-grid">
-              {/* Lights Button - Shows first, hides after click */}
+              {/* Lights Button */}
               {showLightsButton && !activatedButtons.lights && (
                 <button
                   className="action-button lights-button"
                   data-button="lights"
                   onClick={() => handleButtonClick("lights")}
                 >
-                  💡 Turn On the Lights
+                  💡Turn On the Lights💡
                 </button>
               )}
 
-              {/* Music Button - Shows after lights, hides after click */}
+              {/* Music Button */}
               {showMusicButton && !activatedButtons.music && (
                 <button
                   className="action-button music-button"
                   data-button="music"
                   onClick={() => handleButtonClick("music")}
                 >
-                  🎵 Play Music
+                  🎵Play Music🎵
                 </button>
               )}
 
-              {/* Decorate Button - Shows after music is clicked, hides after click */}
+              {/* Decorate Button */}
               {showDecorateButton && !activatedButtons.decorate && (
                 <button
                   className="action-button decorate-button"
                   data-button="decorate"
                   onClick={() => handleButtonClick("decorate")}
                 >
-                  🎨 Decorate
+                  🎐Decorations🎐
                 </button>
               )}
 
-              {/* Balloons Button - Shows after decorate is clicked, hides after click */}
+              {/* Balloons Button */}
               {showBalloonsButton && !activatedButtons.balloons && (
                 <button
                   className="action-button balloons-button"
                   data-button="balloons"
                   onClick={() => handleButtonClick("balloons")}
                 >
-                  🎈 Fly the Balloons
+                  🎈Here come the balloons🎈
                 </button>
               )}
 
-              {/* Message Button - Shows after all decorations */}
+              {/* Message Button */}
               {showMessageButton && (
                 <button
                   className="action-button message-button"
                   data-button="message"
                   onClick={() => handleButtonClick("message")}
                 >
-                  💌 Well, I Have a Message for You Madam Ji
+                  Next
                 </button>
               )}
             </div>
           </div>
 
-          {/* Decorations Container - BELOW buttons in normal flow */}
+          {/* Decorations Container */}
           <div className="decorations-container">
-            {/* Twinkling Lights - when lights button is clicked - AT THE VERY TOP */}
+            {/* Twinkling Lights */}
             {activatedButtons.lights && (
               <div className="decoration-lights string-lights">
                 {[...Array(20)].map((_, i) => (
@@ -413,25 +447,12 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               </div>
             )}
 
-            {/* Bunting decoration - second row */}
+            {/* Bunting decoration */}
             {activatedButtons.decorate && (
               <div className="decoration-decorate bunting">
                 <div className="bunting-string">
                   {[
-                    "H",
-                    "a",
-                    "p",
-                    "p",
-                    "y",
-                    " ",
-                    "B",
-                    "i",
-                    "r",
-                    "t",
-                    "h",
-                    "d",
-                    "a",
-                    "y",
+                    "H", "a", "p", "p", "y", " ", "B", "i", "r", "t", "h", "d", "a", "y",
                   ].map((letter, i) => (
                     <div key={i} className={`bunting-flag flag-${i % 3}`}>
                       {letter}
@@ -441,7 +462,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               </div>
             )}
 
-            {/* Cake decoration - center */}
+            {/* Cake decoration */}
             {activatedButtons.music && (
               <div className="decoration-music cake-container">
                 <div className="cake">
@@ -461,7 +482,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
               </div>
             )}
 
-            {/* Balloons decoration - bottom */}
+            {/* Balloons decoration */}
             {activatedButtons.balloons && (
               <div className="decoration-balloons">
                 {[...Array(8)].map((_, i) => (

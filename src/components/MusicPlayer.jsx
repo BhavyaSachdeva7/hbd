@@ -89,7 +89,7 @@ const MusicPlayer = forwardRef((props, ref) => {
         onClick={toggleMusic}
         aria-label={isPlaying ? "Pause music" : "Play music"}
       >
-        {isPlaying ? "⏸ Pause Music" : "🎵 Play Music"}
+        {isPlaying ? "⏸ Pause Music" : "Play Music🎵"}
       </button>
     </>
   );

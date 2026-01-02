@@ -10,6 +10,15 @@ import Hearts from "./components/Hearts";
 import MessageCard from "./components/MessageCard";
 import MusicPlayer from "./components/MusicPlayer";
 
+// 👇 OPTION 1: If you want to use a local photo:
+// 1. Rename your photo to "closing.jpg"
+// 2. Put it in the "src/assets" folder
+// 3. Uncomment the line below (remove //):
+// import closingImg from "./assets/closing.jpg";
+
+// 👇 OPTION 2: Using a link for now (so the app doesn't crash):
+const closingImg = "https://media.tenor.com/wto_9CjqJTcAAAAM/dance-cat.gif"; 
+
 gsap.registerPlugin(ScrollToPlugin);
 
 function App() {
@@ -17,13 +26,14 @@ function App() {
 
   // ⚠️ FOR TESTING: Comment out lines 18-21 to reset on every reload
   // Check localStorage to persist birthday reached state
-  const [birthdayReached, setBirthdayReached] = useState(() => {
-    const saved = localStorage.getItem("birthdayReached");
+  /* const [birthdayReached, setBirthdayReached] = useState(() => {
+  const saved = localStorage.getItem("birthdayReached");
     return saved === "true";
   });
+  */
 
   // ✅ FOR TESTING: Uncomment this line to always show countdown on reload
-  // const [birthdayReached, setBirthdayReached] = useState(false);
+  const [birthdayReached, setBirthdayReached] = useState(false);
 
   const [showEffects, setShowEffects] = useState(false);
 
@@ -96,31 +106,40 @@ function App() {
           <h1 id="heroTitle">
             {birthdayReached ? (
               <>
-                Happy Birthday <span className="highlight">[Name]</span> 🎂
+                <span className="highlight">Happiest Birthday Bhavya</span>🥳
               </>
             ) : (
               <>
-                Counting down to <span className="highlight">[Name]'s</span>{" "}
-                special day 🎂
+                <span className="highlight">POV: Its January</span>{""}
+                
               </>
             )}
-          </h1>
-          <p>Your personalized message goes here 💗</p>
-        </section>
+          </h1>{/* Dynamic Subtitle */}
+        <p>
+          {birthdayReached 
+            ? "It's my fav person's birthday🌻" 
+            : "and the countdown begins...!🎂"}
+        </p>
+      </section>
 
-        <Countdown
-          onBirthdayReached={handleBirthdayReached}
-          birthdayReached={birthdayReached}
-        />
+      <Countdown
+        onBirthdayReached={handleBirthdayReached}
+        birthdayReached={birthdayReached}
+      />
 
-        <section className="teaser">
-          <h2 id="teaserHeading">
-            {birthdayReached
-              ? "💖 Ready for your surprise! 💖"
-              : "✨ A special celebration awaits you at midnight... ✨"}
-          </h2>
-          <p className="teaser-hint">Something magical is about to unfold 💫</p>
-        </section>
+      <section className="teaser">
+        <h2 id="teaserHeading">
+          {birthdayReached
+            ? "Another year around the sun:)"
+            : "🐦Birday🐦"}
+        </h2>
+        
+        <p className="teaser-hint">
+          {birthdayReached
+            ? "Kisi ka bird day aagaya🐥" 
+            : "Kisi ka bird day aane wala hei shayad😗🤔"}
+        </p>
+      </section>
 
         <button
           id="surpriseBtn"
@@ -128,7 +147,7 @@ function App() {
           disabled={!birthdayReached}
           onClick={() => goToPage(2)}
         >
-          🎀 Let's Celebrate
+          Click here
         </button>
       </div>
 
@@ -154,26 +173,10 @@ function App() {
           ← Back
         </button>
         <MessageCard isActive={currentPage === 3} />
-        <button className="page-nav-btn" onClick={() => goToPage(4)}>
-          📸 View Our Memories
-        </button>
+        
       </div>
 
-      {/* PAGE 4: Gallery */}
-      <div
-        ref={page4Ref}
-        className={`page ${currentPage === 4 ? "active" : ""}`}
-        style={{ visibility: currentPage === 4 ? "visible" : "hidden" }}
-      >
-        <button className="back-btn" onClick={() => goToPage(3)}>
-          ← Back
-        </button>
-        <Gallery isActive={currentPage === 4} />
-        <section className="final">
-          <h2 className="final-message">💖 Forever Yours — [Your Name] 💖</h2>
-          <p className="final-subtitle">Your personalized closing message ✨</p>
-        </section>
-      </div>
+ 
 
       {/* Effects */}
       {showEffects && <Effects />}
