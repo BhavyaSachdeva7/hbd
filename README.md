@@ -191,7 +191,6 @@ Right-click "birthdayReached" → Delete
     ↓
 Refresh page (Ctrl + R)
 ```
-<img width="1919" height="868" alt="image" src="https://github.com/user-attachments/assets/f0e3e12d-0b69-4a15-a571-7577594e0b5d" />
 
 **When to do this:**
 - After clicking the test button and wanting to see the countdown again
