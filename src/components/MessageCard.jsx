@@ -17,10 +17,10 @@ function MessageCard({ isActive }) {
 
 ` 𝕕𝕖𝕒𝕣 𝕓𝕙𝕒𝕧𝕪𝕒,
 
- well idk what to write here but i just want to say that a very happy birthday to you and congratulations for finally getting placed!!
+ well idk what to write here but i just want to say that a very happy birthday to you and heartiest congratulations for finally getting placed!!
  thankyou for always being there:)
 
- "waise thanks. 'kisliye?' for everything:p"
+ "and thanks. 'kisliye?' for everything:p"
 
 🄷🄰🄿🄿🄸🄴🅂🅃 🄱🄸🅁🅃🄷🄳🄰🅈🎀
 
