@@ -15,17 +15,16 @@ function MessageCard({ isActive }) {
 
   const message =
 
-`𝔸𝕍𝕐𝔸,
+` 𝕕𝕖𝕒𝕣 𝕓𝕙𝕒𝕧𝕪𝕒,
 
-1
+ well idk what to write here but i just want to say that a very happy birthday to you and congratulations for finally getting placed!!
+ thankyou for always being there:)
 
-2
+ "waise thanks. 'kisliye?' for everything:p"
 
-3
+🄷🄰🄿🄿🄸🄴🅂🅃 🄱🄸🅁🅃🄷🄳🄰🅈🎀
 
-Happy Birthday!🎉
-
-— me`;
+— AT`;
 
   // Handle page transitions
   useEffect(() => {
