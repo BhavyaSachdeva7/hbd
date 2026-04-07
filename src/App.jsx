@@ -37,13 +37,13 @@ function App() {
           trackPath = "/countdown.mp3";
           break;
         case 2:
-          trackPath = "/music/celebration.mp3";
+          trackPath = "/celebration.mp3";
           break;
         case 3:
           trackPath = "/music.mp3";
           break;
         case 4:
-          trackPath = "/music/gallery.mp3";
+          trackPath = "/gallery.mp3";
           break;
         default:
           trackPath = "/countdown.mp3";
