@@ -363,7 +363,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
         </div>
       )}
 
-      /* {/* Celebration Buttons Section */}
+      {/* {/* Celebration Buttons Section */}
       {showButtons && (
         <>
           {/* Buttons Section - At the TOP */}
@@ -506,6 +506,6 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
       )}
     </div>
   );
-} */
+} */}
 
 export default CelebrationPage;
