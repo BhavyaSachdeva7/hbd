@@ -190,7 +190,8 @@ function App() {
         <Gallery isActive={currentPage === 4} />
         <section className="final">
           <h2 className="final-message">💖💖</h2>
-          <p className="final-subtitle"></p>
+          <p className="final-subtitle">Tum Husn Pari🫪Tum Jaane Jahaan😍
+Tu Sab Se Haseen😋Tu Sab Se Jawaan💅</p>
         </section>
       </div>
 
