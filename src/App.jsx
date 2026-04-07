@@ -145,7 +145,7 @@ function App() {
           id="surpriseBtn"
           className="celebrate-btn"
           disabled={!birthdayReached}
-          onClick={() => goToPage(3)}
+          onClick={() => goToPage(2)}
         >
           Click here
         </button>
