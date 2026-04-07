@@ -106,18 +106,18 @@ function App() {
           <h1 id="heroTitle">
             {birthdayReached ? (
               <>
-                <span className="highlight">Happiest Birthday Bhavya</span>🥳
+                <span className="highlight">Happiestest Birthday Khushi</span>🥳
               </>
             ) : (
               <>
-                <span className="highlight">POV: Its January</span>{""}
+                <span className="highlight">POV: Its April</span>{""}
                 
               </>
             )}
           </h1>{/* Dynamic Subtitle */}
         <p>
           {birthdayReached 
-            ? "It's my fav person's birthday🌻" 
+            ? "Bauni ka budday😋" 
             : "and the countdown begins...!🎂"}
         </p>
       </section>
@@ -131,13 +131,13 @@ function App() {
         <h2 id="teaserHeading">
           {birthdayReached
             ? "Another year around the sun:)"
-            : "🐦Birday🐦"}
+            : "My Shahi Tukda My Jigar Da Tukda<3"}
         </h2>
         
         <p className="teaser-hint">
           {birthdayReached
-            ? "Kisi ka bird day aagaya🐥" 
-            : "Kisi ka bird day aane wala hei shayad😗🤔"}
+            ? "Pls don't crush any bottle this time😭" 
+            : "And My Everything"}
         </p>
       </section>
 
