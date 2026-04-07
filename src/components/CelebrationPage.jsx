@@ -36,7 +36,7 @@ function CelebrationPage({ onComplete, musicPlayerRef }) {
   const slides = [
     {
       icon: <img src="https://i.pinimg.com/736x/14/fe/1b/14fe1b985f8fa73d3562c205af299464.jpg" style={{ width: '200px' }} />,
-      text: "It's 29th!",
+      text: "It's 21st!",
       type: "announcement",
     },
     {
