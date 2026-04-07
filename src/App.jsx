@@ -145,7 +145,7 @@ function App() {
           id="surpriseBtn"
           className="celebrate-btn"
           disabled={!birthdayReached}
-          onClick={() => goToPage(2)}
+          onClick={() => goToPage(3)}
         >
           Click here
         </button>
@@ -169,7 +169,7 @@ function App() {
         className={`page ${currentPage === 3 ? "active" : ""}`}
         style={{ visibility: currentPage === 3 ? "visible" : "hidden" }}
       >
-        <button className="back-btn" onClick={() => goToPage(2)}>
+        <button className="back-btn" onClick={() => goToPage(1)}>
           ← Back
         </button>
         <MessageCard isActive={currentPage === 3} />
