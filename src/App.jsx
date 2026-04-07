@@ -191,7 +191,7 @@ function App() {
         <section className="final">
           <h2 className="final-message">💖💖</h2>
           <p className="final-subtitle">Tum Husn Pari🫪Tum Jaane Jahaan😍
-Tu Sab Se Haseen😋Tu Sab Se Jawaan💅</p>
+            Tum Sab Se Haseen😋Tum Sab Se Jawaan💅</p>
         </section>
       </div>
 
