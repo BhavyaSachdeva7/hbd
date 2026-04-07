@@ -59,7 +59,7 @@ function Countdown({ onBirthdayReached, birthdayReached }) {
       <section className="countdown">
         <div className="flip-timer">
           <span className="birthday-celebration">
-            Hope you'll have a great one!🎉
+            My Shahi Tukda, My Jigar Da Tukda <3
           </span>
         </div>
       </section>
