@@ -34,19 +34,19 @@ function App() {
       // Ensure these files exist in your public/music folder!
       switch (currentPage) {
         case 1:
-          trackPath = "/music/countdown.mp3";
+          trackPath = "/countdown.mp3";
           break;
         case 2:
           trackPath = "/music/celebration.mp3";
           break;
         case 3:
-          trackPath = "/music/message.mp3";
+          trackPath = "/music.mp3";
           break;
         case 4:
           trackPath = "/music/gallery.mp3";
           break;
         default:
-          trackPath = "/music/countdown.mp3";
+          trackPath = "/countdown.mp3";
       }
 
       // We call a function inside your MusicPlayer component
