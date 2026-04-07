@@ -1,4 +1,4 @@
-import {
+Import {
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -9,7 +9,6 @@ import "./MusicPlayer.css";
 
 const MusicPlayer = forwardRef((props, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSrc, setCurrentSrc] = useState("/music.mp3"); // Default track
   const audioRef = useRef(null);
 
   const toggleMusic = () => {
@@ -32,53 +31,59 @@ const MusicPlayer = forwardRef((props, ref) => {
     }
   };
 
-  // Expose methods to App.jsx
+  // Expose play/pause methods to parent components
   useImperativeHandle(ref, () => ({
     play: () => {
-      audioRef.current?.play().then(() => setIsPlaying(true));
+      const audio = audioRef.current;
+      if (audio && !isPlaying) {
+        audio
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            console.error("Error playing audio:", error);
+          });
+      }
     },
     pause: () => {
-      audioRef.current?.pause();
-      setIsPlaying(false);
+      const audio = audioRef.current;
+      if (audio && isPlaying) {
+        audio.pause();
+        setIsPlaying(false);
+      }
     },
     toggle: () => {
       toggleMusic();
     },
-    // 👇 THIS IS THE NEW FUNCTION FOR AUTO-SWITCHING
-    changeTrack: (newPath) => {
-      if (audioRef.current && currentSrc !== newPath) {
-        const wasPlaying = isPlaying;
-        setCurrentSrc(newPath); // Update state with new file path
-        
-        // Use a small timeout to let React update the src attribute
-        setTimeout(() => {
-          audioRef.current.load();
-          if (wasPlaying || true) { // Always try to play on page change
-            audioRef.current.play()
-              .then(() => setIsPlaying(true))
-              .catch(err => console.log("Playback interrupted:", err));
-          }
-        }, 50);
-      }
-    }
   }));
 
   useEffect(() => {
+    // Try to autoplay
     const audio = audioRef.current;
     if (audio) {
+      // Set volume
       audio.volume = 0.5;
-      // Try to autoplay on first load
-      audio.play()
-        .then(() => setIsPlaying(true))
-        .catch(() => setIsPlaying(false));
+
+      audio
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          // Autoplay was prevented
+          console.log("Autoplay prevented:", error);
+          setIsPlaying(false);
+        });
     }
   }, []);
 
   return (
     <>
-      {/* We put src directly on audio for easier dynamic updates */}
-      <audio ref={audioRef} src={currentSrc} loop preload="auto" />
-      
+      <audio ref={audioRef} loop preload="auto">
+        <source src="/music.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
       <button
         className="music-toggle"
         onClick={toggleMusic}
@@ -90,9 +95,6 @@ const MusicPlayer = forwardRef((props, ref) => {
   );
 });
 
-MusicPlayer.displayName = "MusicPlayer";
-
-export default MusicPlayer;
 MusicPlayer.displayName = "MusicPlayer";
 
 export default MusicPlayer;
