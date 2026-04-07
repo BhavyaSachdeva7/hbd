@@ -106,7 +106,7 @@ function App() {
           <h1 id="heroTitle">
             {birthdayReached ? (
               <>
-                <span className="highlight">Happiestest Birthday Khushi</span>🥳
+                <span className="highlight">Happiestest Birthday Khushi</span>🫶
               </>
             ) : (
               <>
@@ -131,13 +131,13 @@ function App() {
         <h2 id="teaserHeading">
           {birthdayReached
             ? "Another year around the sun:)"
-            : "My Shahi Tukda My Jigar Da Tukda<3"}
+            : "Jalpari🧜‍♀️"}
         </h2>
         
         <p className="teaser-hint">
           {birthdayReached
             ? "Pls don't crush any bottle this time😭" 
-            : "And My Everything"}
+            : "Maharani ji ka b'day aane wala hei🫡"}
         </p>
       </section>
 
