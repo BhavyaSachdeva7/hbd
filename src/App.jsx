@@ -37,7 +37,7 @@ function App() {
           trackPath = "/countdown.mp3";
           break;
         case 2:
-          trackPath = "/celebration.mp3";
+          trackPath = "/celebration.m4a";
           break;
         case 3:
           trackPath = "/music.mp3";
