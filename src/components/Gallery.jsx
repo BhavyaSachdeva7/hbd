@@ -139,7 +139,7 @@ function Gallery({ isActive }) {
 
   return (
     <section className="gallery">
-      <h2>Favourite Photos</h2>
+      <h2>face card never declines</h2>
       <div className="photos">
         {photos.map((photo, index) => (
           <img
