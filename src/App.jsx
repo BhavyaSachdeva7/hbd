@@ -10,8 +10,6 @@ import Hearts from "./components/Hearts";
 import MessageCard from "./components/MessageCard";
 import MusicPlayer from "./components/MusicPlayer";
 
-const closingImg = "https://media.tenor.com/wto_9CjqJTcAAAAM/dance-cat.gif"; 
-
 gsap.registerPlugin(ScrollToPlugin);
 
 function App() {
@@ -98,6 +96,105 @@ function App() {
       <MusicPlayer ref={musicPlayerRef} />
       <Hearts />
 
+      {/* PAGE 1: Countdown Timer */}
+      <div
+        ref={page1Ref}
+        className={`page ${currentPage === 1 ? "active" : ""}`}
+        style={{ visibility: currentPage === 1 ? "visible" : "hidden" }}
+      >
+        <section className="hero">
+          <h1>
+            {birthdayReached ? (
+              <>
+                <span className="highlight">Happiest Birthday Khushi</span>🫶
+              </>
+            ) : (
+              <>
+                <span className="highlight">POV: Its April</span>
+              </>
+            )}
+          </h1>
+          <p>
+            {birthdayReached 
+              ? "Bauni ka budday😋" 
+              : "and the countdown begins...!🎂"}
+          </p>
+        </section>
+
+        <Countdown
+          onBirthdayReached={handleBirthdayReached}
+          birthdayReached={birthdayReached}
+        />
+
+        <section className="teaser">
+          <h2>
+            {birthdayReached ? "Another year around the sun:)" : "Jalpari🧜‍♀️"}
+          </h2>
+          <p className="teaser-hint">
+            {birthdayReached
+              ? "Pls don't crush any bottle this time😭" 
+              : "Maharani ji ka b'day aane wala hei🫡"}
+          </p>
+        </section>
+
+        <button
+          className="celebrate-btn"
+          disabled={!birthdayReached}
+          onClick={() => goToPage(2)}
+        >
+          Click here
+        </button>
+      </div>
+
+      {/* PAGE 2: Celebration/QNA Page */}
+      <div
+        ref={page2Ref}
+        className={`page ${currentPage === 2 ? "active" : ""}`}
+        style={{ visibility: currentPage === 2 ? "visible" : "hidden" }}
+      >
+        <CelebrationPage
+          onComplete={() => goToPage(3)}
+          musicPlayerRef={musicPlayerRef}
+        />
+      </div>
+
+      {/* PAGE 3: Message Card */}
+      <div
+        ref={page3Ref}
+        className={`page ${currentPage === 3 ? "active" : ""}`}
+        style={{ visibility: currentPage === 3 ? "visible" : "hidden" }}
+      >
+        <button className="back-btn" onClick={() => goToPage(1)}>
+          ← Back
+        </button>
+        <MessageCard isActive={currentPage === 3} />
+        <button className="page-nav-btn" onClick={() => goToPage(4)}>
+          📸 Pokémon Collection
+        </button>
+      </div>
+
+      {/* PAGE 4: Gallery */}
+      <div
+        ref={page4Ref}
+        className={`page ${currentPage === 4 ? "active" : ""}`}
+        style={{ visibility: currentPage === 4 ? "visible" : "hidden" }}
+      >
+        <button className="back-btn" onClick={() => goToPage(3)}>
+          ← Back
+        </button>
+        <Gallery isActive={currentPage === 4} />
+        <section className="final">
+          <h2>💖💖</h2>
+          <p>Tum Husn Pari🫪Tum Jaane Jahaan😍 Tum Sab Se Haseen😋Tum Sab Se Jawaan💅</p>
+        </section>
+      </div>
+
+      {showEffects && <Effects />}
+    </div>
+  );
+}
+
+export default App;
       {/* PAGE 1: Countdown Timer */}
       <div
         ref={page1Ref}
@@ -203,7 +300,7 @@ function App() {
 export default App;
       {/* Pass the ref here */}
       <MusicPlayer ref={musicPlayerRef} />
-      <Hearts />
+      <Hearts/>
 
       {/* PAGE 1: Countdown Timer */}
       <div
