@@ -201,15 +201,4 @@ function App() {
 }
 
 export default App;
-        
-      </div>
-
- 
-
-      {/* Effects */}
-      {showEffects && <Effects />}
-    </div>
-  );
-}
-
-export default App;
+    
