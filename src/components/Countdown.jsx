@@ -85,7 +85,7 @@ function Countdown({ onBirthdayReached, birthdayReached }) {
       </div>
       
       {/* ⚠️ TEST BUTTON - delete it from here⚠️ */}
-      {/*<button
+      <button
   className="test-button"
   onClick={onBirthdayReached}
   title="Skip countdown and see celebration"
