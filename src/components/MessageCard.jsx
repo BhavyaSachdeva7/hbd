@@ -15,14 +15,16 @@ function MessageCard({ isActive }) {
 
   const message =
 
-` 𝕕𝕖𝕒𝕣 𝕓𝕙𝕒𝕧𝕪𝕒,
+` 𝕕𝕖𝕒𝕣 𝕜𝕙𝕦𝕤𝕙𝕚,
 
- well idk what to write here but i just want to say that a very happy birthday to you and heartiest congratulations for finally getting placed!!
- thankyou for always being there:)
+happy wala birthday happiness wali khushi ko. baaki log happiness dhundhte hei par mere pass toh khushi hei😛 and while everyone else has to find happiness, you just have to look in the mirror!
+i hope your day is full of khushi because honestly any other emotion would just be off-brand for you.
+wishing you a year where your name isn't just what people call you, but how you feel every single day.
+stay happy, stay khush(i) :)
 
- "and thanks. 'kisliye?' for everything:p"
+thankyou for always being there<3
 
-🄷🄰🄿🄿🄸🄴🅂🅃 🄱🄸🅁🅃🄷🄳🄰🅈🎀
+🄷🄰🄿🄿🅈 🄱🄸🅁🅃🄷🄳🄰🅈🎀
 
 — AT`;
 
