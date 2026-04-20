@@ -17,10 +17,9 @@ function MessageCard({ isActive }) {
 
 ` 𝕕𝕖𝕒𝕣 𝕜𝕙𝕦𝕤𝕙𝕚,
 
-happy wala birthday happiness wali khushi ko. baaki log happiness dhundhte hei par mere pass toh khushi hei😛 and while everyone else has to find happiness, you just have to look in the mirror!
-i hope your day is full of khushi because honestly any other emotion would just be off-brand for you.
-wishing you a year where your name isn't just what people call you, but how you feel every single day.
-stay happy, stay khush(i) :)
+Happy wala birthday happiness wali khushi ko. Baaki log happiness dhundhte hei par mere pass toh khushi hei😛, and while everyone else has to find happiness, you just have to look in the mirror!🤳
+I hope your day is full of khushi because honestly any other emotion would just be off-brand for you. Wishing you a year where your name isn't just what people call you, but how you feel every single day.💃
+Stay happy, Stay khush(i) :)
 
 thankyou for always being there<3
 
