@@ -14,7 +14,7 @@ function Countdown({ onBirthdayReached, birthdayReached }) {
   useEffect(() => {
     if (birthdayReached) return;
 
-    const targetDate = new Date("2026-04-22T18:08:05");
+    const targetDate = new Date("2026-04-22T18:10:30");
 
     const updateCountdown = () => {
       const now = new Date();
